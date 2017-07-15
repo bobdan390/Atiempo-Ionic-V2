@@ -1,0 +1,153 @@
+<ion-view view-title="viajero" class="directory-view viajero" hide-nav-bar="true" has-header="false">
+
+	<ion-content has-subheader="false">
+
+		<div class="block-directory-a">
+
+			<div class="bar bar-header directoy-bar-header">
+
+				<a href="#/home-user" class="button button-icon ion-android-arrow-dropleft-circle" ng-click="back()">
+
+				</a>
+
+				<h1 class="title">Asistencia al viajero</h1>
+
+				<i class="ion-android-arrow-dropdown title"></i>
+
+				<a href="#" class="button button-icon icon-right ion-android-cancel" ng-click="cerrarSesion()">
+
+				</a>
+
+			</div>
+
+			<div class="row block-filter responsive-sm">
+
+				<div class="col col-center">
+
+					<br><br><br>
+
+					<p class="text-18 sub-title"> <strong> Viajes: </strong> </p>
+
+				</div>
+
+			</div>
+
+			<div class="row shadow-bottom list-citas responsive-sm" ng-repeat="item in listViajes">
+
+				<div class="col">
+
+					<br>
+					<br>
+
+					<p>
+						<span class="border-right" ng-bind="'Cedula: '+item.avi.cedula_afiliado+'&nbsp;&nbsp;'"></span>
+
+						<span class="border-right" ng-bind="(formatDate(item.avi.created_at) | date:'dd/MM/yyyy')+'&nbsp;&nbsp;'"></span>
+
+						<span class="border-right" ng-bind="'Cod: '+item.avi.codigo_solicitud+'&nbsp;&nbsp;'"></span>
+
+						&nbsp;&nbsp;<span ng-click="openModal(item)"><i class="icon ion-android-search"></i></span>
+
+					</p>
+
+				</div>
+
+			</div>
+
+			<div class="row block-new-cita">
+
+				<div class="col">
+
+				<br><br><br><br>
+
+				<span class="step size-64" ng-click="openViewSolicitarViaje()">
+
+				   <i class="icon ion-ios-plus-outline sub-title"></i>
+
+				</span>
+
+				<p>Nuevo Viaje</p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<script id="my-modal.html" type="text/ng-template">
+
+			<ion-modal-view>
+
+				<ion-header-bar class="bar bar-header bar-positive">
+
+					<h1 class="title">Detalles Consulta</h1>
+
+					<button class="button button-clear button-primary" ng-click="modal.hide()">Cerrar</button>
+
+				</ion-header-bar>
+
+				<ion-content class="padding">
+
+					<div class="row">
+
+						<div class="col">
+
+							<p ng-bind="'Cedula: '+dataModal.avi.cedula_afiliado"></p>
+							<p ng-bind="'Cod. Contrato: '+dataModal.avi.codigo_contrato"></p>
+							<p ng-bind="'Cod. Solicitud: '+dataModal.avi.codigo_solicitud"></p>
+							<p ng-bind="'Cronograma: '+dataModal.avi.nro_cronograma"></p>
+							<p ng-bind="'Observaciones: '+dataModal.avi.observaciones"></p>
+
+						</div>
+
+					</div>
+
+					<div ng-repeat="viaje in dataModal.detalleAvi">
+
+						<div class="row">
+
+							<div class="col">
+
+								<p ng-bind="'Pais: '+viaje.pais.name_es"></p>
+
+							</div>
+
+						</div>
+
+						<div class="row responsive-sm">
+
+							<div class="col">
+
+								<p ng-bind="'Fecha de entrada: '+fechaSeteada(viaje.detalle.fecha_desde)"></p>
+
+							</div>
+
+							<div class="col">
+
+								<p ng-bind="'Fecha de salida: '+fechaSeteada(viaje.detalle.fecha_hasta)"></p>
+
+							</div>
+
+						</div>
+
+						<div class="row">
+
+							<div class="col">
+
+								<p ng-bind="'Cantidad de dias: '+ dias(viaje.detalle.fecha_desde, viaje.detalle.fecha_hasta)"></p>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</ion-content>
+
+			</ion-modal-view>
+
+		</script>
+
+	</ion-content>
+
+</ion-view>

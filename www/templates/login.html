@@ -1,0 +1,63 @@
+  <ion-view view-title="Login" class="login-view" hide-nav-bar="true" has-header="false">
+
+    <ion-content class="login-content">
+
+      <div class="header-home">
+
+          <div class="header-img">
+
+            <div id="img-home"><img src="img/logo-blanco.png" /></div>
+
+          </div>
+      </div>
+      <div class="menu-home">
+        <div class="welcome-msg">
+        Inicie Sesion
+      </div>
+          <form name="fomrLogin" ng-model="loginForm">
+
+            <div class="login-form row">
+
+              <div class="col user">
+
+                <label class="item item-input">
+
+                    <input type="text" placeholder="Usuario" name="username" ng-model="username">
+
+                </label>
+
+              </div>
+
+              <div class="col password">
+
+                <label class="item item-input">
+
+                <input type="password" placeholder="Contrase&ntilde;a" name="password" ng-model="password">
+                </label>
+
+              </div>
+
+              <div class="col-10 login-btn">
+
+                <a class="button button-block button-calm" ng-click="login(fomrLogin)"></a>
+
+              </div>
+
+            </div>
+
+          </form>
+
+        <div class="msg"><a href="#" onclick="window.open('http://grupomlk1.dyndns.org:8000/a-net/public/password/reset', '_system', 'location=yes'); return false;" >&#191;Olvid&oacute; su contrase&ntilde;a?</a></div>
+
+        <div class="login-register">
+
+            <div class="register-text">&#191;A&uacute;n no eres miembro?</div>
+            <div class="register-btn"> <span ng-click="register_()" class="button reg">Registrate</span></div>
+
+        </div>
+
+      </div>
+
+    </ion-content>
+
+  </ion-view>

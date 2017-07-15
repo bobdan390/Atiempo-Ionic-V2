@@ -1,0 +1,143 @@
+<ion-view view-title="directory" class="directory-view" hide-nav-bar="true" has-header="false">
+
+	<ion-content has-subheader="false">
+
+		<div class="block-directory-a">
+
+			<div class="bar bar-header directoy-bar-header">
+
+				<a href="#/home-user" class="button button-icon ion-android-arrow-dropleft-circle">
+
+				</a>
+
+				<h1 class="title">Farmacia</h1>
+
+				<i class="ion-android-arrow-dropdown title"></i>
+
+				<a href="#" class="button button-icon icon-right ion-android-cancel" ng-click="cerrarSesion()">
+				
+				</a>
+
+			</div>
+
+			<div class="row block-filter">
+
+				<div class="col">
+
+					<br>
+
+					<div class="list list-inset bordered-radio">
+
+					  <label class="item item-input">
+
+					    <i class="icon ion-search placeholder-icon"></i>
+
+					    <input type="text" placeholder="Filtar por">
+
+					  </label>
+
+					</div> <br>
+
+				</div>
+
+			</div>
+
+			<div class="row shadow-bottom list-citas responsive-sm">
+
+				<div class="col">
+
+					<p>
+
+						<span class="border-right">Pedro j. Pérez &nbsp;&nbsp;</span>
+
+						<span class="border-right"> &nbsp;&nbsp; 17 de Octubre &nbsp;&nbsp;</span>
+
+						<span>&nbsp;&nbsp; Atamel 500mg</span>
+
+
+					</p>
+
+					<p>
+						<button class="button icon-right ion-android-search button-clear button-dark activated" ng-click="openModal()">Ver más</button>
+					</p>
+
+				</div>
+
+			</div>
+
+			<div class="row shadow-bottom list-citas responsive-sm">
+
+				<div class="col">
+
+					<br>
+
+					<p>
+
+						<span class="border-right">Pedro j. Pérez &nbsp;&nbsp;</span>
+
+						<span class="border-right"> &nbsp;&nbsp; 17 de Octubre &nbsp;&nbsp;</span>
+
+						<span>&nbsp;&nbsp; Atamel 500mg</span>
+
+
+					</p>
+
+					<p>
+						<button class="button icon-right ion-android-search button-clear button-dark activated" ng-click="openModal()">Ver más</button>
+					</p>
+
+				</div>
+
+			</div>
+
+			<div class="row block-new-cita">
+
+				<div class="col">
+
+				<br><br>
+
+				<span class="step size-64" ng-click="openViewAddMedicina()">
+
+				   <i class="icon ion-ios-plus-outline sub-title"></i>
+
+				</span>
+
+				<p>Solicitar una nueva medicina</p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="row block-directory-c">
+
+		</div>
+
+		<script id="my-modal.html" type="text/ng-template">
+
+			<ion-modal-view>
+
+				<ion-header-bar class="bar bar-header bar-positive">
+
+					<h1 class="title">Detalles</h1>
+
+					<button class="button button-clear button-primary" ng-click="modal.hide()">Cerrar</button>
+
+				</ion-header-bar>
+
+				<ion-content class="padding">
+
+					<p>listar detalles</p>
+
+				</ion-content>
+
+			</ion-modal-view>
+
+		</script>
+
+	</ion-content>
+
+	<div class="bar bar-footer"></div>
+
+</ion-view>

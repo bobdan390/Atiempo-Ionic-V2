@@ -1,0 +1,327 @@
+<ion-view view-title="citas" class="directory-view citas" hide-nav-bar="true" has-header="false">
+
+	<ion-content has-subheader="false">
+
+		<div class="block-directory-a">
+
+			<div class="bar bar-header directoy-bar-header">
+
+				<a href="#/home-user" class="button button-icon ion-android-arrow-dropleft-circle">
+
+				</a>
+
+				<h1 class="title">Citas</h1>
+
+				<i class="ion-android-arrow-dropdown title"></i>
+
+				<a href="#" class="button button-icon icon-right ion-android-cancel" ng-click="cerrarSesion()">
+
+				</a>
+
+			</div>
+
+			<div class="shadow-bottom">
+
+				<div class="row responsive-sm">
+
+					<div class="col">
+
+						<br><br><br>
+
+						 <p class="text-18"> <strong> Solicitud de cita para: <span ng-bind="datosContra.titular.nombre+' '+datosContra.titular.apellido+' V-'+datosContra.titular.cedula"></span></strong> </p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+				<div class="row responsive-sm">
+
+					<div class="col">
+
+						<br>
+
+						 <p class="text-18 sub-title"> <strong> Datos de la Atención Médica: </strong></p>
+
+					</div>
+
+				</div>
+
+				<div class="row responsive-sm">
+
+					<div class="col">
+
+						<label class="item item-input item-floating-label background-input bordered-radio">
+
+							<span class="input-label">Fecha:</span>
+
+							<input type="text" name="fecha" ng-model="fecha.value" ng-click="openDatePicker()" placeholder="Fecha">
+
+						</label>
+
+					</div>
+
+					<div class="col">
+
+						<label class="item item-input item-floating-label background-input bordered-radio">
+
+							<span class="input-label">Teléfono:</span>
+
+							<input type="tel" name="telefono" ng-model="telefono.value" placeholder="Teléfono">
+
+						</label>
+
+					</div>
+
+				</div>
+
+				<div class="row responsive-sm">
+
+					<div class="col">
+
+						<label class="item item-input item-floating-label background-input bordered-radio">
+
+							<span class="input-label">Motivo de la consulta:</span>
+
+							<textarea rows="7" ng-model="motivoConsult.value" placeholder="Motivo de la consulta"></textarea>
+
+						</label>
+
+					</div>
+
+				</div>
+
+				<div class="row responsive-sm">
+
+					<div class="col">
+
+						<label>Especilidad:</label>
+
+						<label class="item item-input item-select bordered-radio">
+
+							<span class="input-label">&nbsp;</span>
+
+						    <select ng-model="espec.value" ng-disabled="espec.value">
+						      <option value="">Seleccione</option>
+						      <option ng-repeat="esp in allEspec" value="{{ esp }}" ng-bind="esp.descripcion"></option>
+						    </select>
+
+						</label>
+
+					</div>
+
+					<div class="col">
+
+						<label>Tipo de Servicio:</label>
+
+						<label class="item item-input item-select bordered-radio">
+
+							<span class="input-label">&nbsp;</span>
+
+						    <select ng-model="tipoServ.value" ng-disabled="!espec.value">
+						      <option value="">Seleccione</option>
+						      <option ng-repeat="serv in allServ" value="{{ serv }}" ng-bind="serv.descripcion"></option>
+						    </select>
+
+						</label><br>
+
+					</div>
+
+				</div>
+
+				<div class="row responsive-sm">
+
+					<div class="col">
+
+						<label>Tipo de procedimiento médico:</label>
+
+						<label class="item item-input item-select bordered-radio">
+
+							<span class="input-label">&nbsp;</span>
+
+						    <select ng-model="procMedico.value" ng-disabled="!tipoServ.value">
+						      <option value="">Seleccione</option>
+						      <option ng-repeat="item in listProcMedicos" value="{{ item }}" ng-bind="item.tipo_examen"></option>
+						    </select>
+
+						</label>
+
+					</div>
+
+					<div class="col">
+
+						<li class="item item-checkbox bordered-radio input-custom">
+				           Serv. Adicional
+				           <label class="checkbox">
+				             	<input type="checkbox" value="1" ng-model="servAdic.value">
+				           </label>
+			        	</li> <br>
+
+					</div>
+
+				</div>
+
+				<div class="row responsive-sm">
+
+					<div class="col">
+
+						<label>Proveedor Preferido:</label>
+
+						<label class="item item-input bordered-radio">
+
+							<input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete" autocomplete="off" ng-model="prov1.value" item-value-key="codigo_proveedor" item-view-value-key="nombre" items-method="getNombre(query, isInitializing)" items-method-value-key="items" placeholder="Introduzca el nombre..." items-clicked-method="itemsClickedProv1(callback)" component-id="comp1" max-selected-items="1"/>
+
+						</label>
+
+					</div>
+
+					<div class="col">
+
+						<label>Proveedor Secundario:</label>
+
+						<label class="item item-input bordered-radio">
+
+							<input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete" autocomplete="off" ng-model="prov2.value" item-value-key="codigo_proveedor" item-view-value-key="nombre" items-method="getNombre(query, isInitializing)" items-method-value-key="items" placeholder="Introduzca el nombre..." items-clicked-method="itemsClickedProv2(callback)" component-id="comp2" max-selected-items="1"/>
+
+						</label>
+
+					</div>
+
+				</div>
+
+				<div class="row responsive-sm">
+
+					<div class="col">
+
+						<label class="item item-input item-floating-label background-input bordered-radio">
+
+							<span class="input-label">Detalle de servicio:</span>
+
+							<input type="text" ng-model="detailServ.value" placeholder="Detalle de servicio">
+
+						</label>
+
+					</div>
+
+					<!-- <div class="col">
+
+						<label class="item item-input bordered-radio">
+
+							<span class="input-label">Cant. de servicios solicitados:</span>
+
+							<input type="tel" ng-model="cantServ.value" ng-disabled="true">
+
+						</label>
+
+					</div> -->
+
+				</div>
+
+				<!--<div class="row responsive-sm">
+
+					<div class="col">
+
+						<button class="btn-procedimiento button button-block button-royal" ng-click="addDetailClav()" ng-disabled="!procMedico.value || !tipoServ.value || !model.value">
+						  Agregar Procedimiento
+						</button>
+
+					</div>
+
+				</div>
+
+				<div class="row responsive-sm">
+
+					<div class="col">
+
+						<ion-scroll zooming="true" direction="y">
+
+							<div class="list lista-detail-clave">
+
+						         <span class="item item-icon-left item-icon-right" ng-repeat="item in detailClaves">
+
+								    <i class="icon ion-search" ng-click="modal.show(); datosModal(item)"></i>
+
+								    &nbsp; {{ item.tipoServ.descripcion }}
+
+								    <i class="icon ion-trash-a" style="cursor: pointer;" ng-click="removeItemList($index)"></i>
+
+								  </span>
+
+						     </div>
+
+						</ion-scroll>
+
+					</div>
+
+				</div> -->
+
+				<div class="row responsive-sm">
+
+					<div class="col">
+
+						<label class="item item-input item-floating-label background-input bordered-radio">
+
+							<span class="input-label">Observaciones:</span>
+
+							<textarea rows="9" ng-model="observaciones.value" placeholder="Observaciones"></textarea>
+
+						</label>
+
+					</div>
+
+				</div>
+
+			<div class="row shadow-bottom-new-cita block-new-cita-c">
+
+				<div class="col">
+					<br>
+			        <p>(*) todos los campos son requeridos</p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="row block-citas-next">
+
+			<div class="col">
+
+				<span class="button-footer" ng-click="enviarCita()" ng-if="clinicaOMedico1 != '' && clinicaOMedico2 != '' && motivoConsult.value != '' && fecha.value != '' && telefono.value != '' && espec.value != '' && tipoServ.value != '' && procMedico.value != ''">Generar Clave</span>
+
+			</div>
+
+		</div>
+
+		<script id="my-modal.html" type="text/ng-template">
+
+			<ion-modal-view>
+
+				<ion-header-bar class="bar bar-header bar-positive">
+
+					<h1 class="title">Detalles Consulta</h1>
+
+					<button class="button button-clear button-primary" ng-click="modal.hide()">Cerrar</button>
+
+				</ion-header-bar>
+
+				<ion-content class="padding">
+
+					<p>
+						Tipo de Servicio: {{ dataModal.value.tipoServ.descripcion }}
+					</p>
+
+					<p>
+						Procedimiento Medico: {{ dataModal.value.proMed.tipo_examen }}
+					</p>
+
+				</ion-content>
+
+			</ion-modal-view>
+
+		</script>
+
+	</ion-content>
+
+</ion-view>

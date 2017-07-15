@@ -1,0 +1,48 @@
+<ion-view view-title="record" class="directory-view tratamientos" hide-nav-bar="true" has-header="false">
+
+    <ion-content has-subheader="false">
+
+        <div class="block-directory-a" style="min-height: 640px;">
+
+            <div class="bar bar-header directoy-bar-header">
+
+                <a class="button button-icon ion-android-arrow-dropleft-circle" ng-click="back()"></a>
+
+                <h1 class="title">Mis Tratamientos</h1>
+
+
+                <a class="button button-icon ion-android-notifications" ng-click="select()"></a>
+
+
+            </div>
+
+                <div class="row">
+                	<div class="col">
+                	<br/>
+                	<br/>
+                		<div class="list">
+                            <div class="item" ng-repeat="name in response" style="background-color: rgba(255, 255, 255, 0.97); border-bottom: 1.5px solid #c3c3c3;">
+                                <div class="row">
+                                    <div class="col">
+                                        {{name[0]}}
+                                    </div>
+                                    <div class="col" style="text-align: right;">
+                                        <span ng-click = "editAlarm({{name[1]}})" style="padding: 7px; background-color: rgba(128, 128, 128, 0.08);border-right: 1px solid rgba(175, 175, 175, 0.36); color: black;font-size: 20px;"> <i class="ion-edit"></i>  </span>
+                                        <span ng-click = "deleteAlarm({{name[1]}})" style="font-size: 20px; padding: 7px; background-color: rgba(128, 128, 128, 0.08); color: red;"> <i class="ion-ios-trash"></i> </span>
+                                    </div>
+                                </div>
+                            </div>
+						   <div class="item" style="background-color: rgba(241, 241, 241, 0.59) !important;" ng-click="formAgregar()">
+                                <p style="text-align: center; font-size: 25px !important; color: blue;">
+                                    <i class="ion-plus-circled"></i>
+                                </p>
+						   </div>
+						</div>
+                	</div>
+                </div>
+
+        </div>
+
+    </ion-content>
+
+</ion-view>

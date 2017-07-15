@@ -1,0 +1,286 @@
+<ion-view view-title="record" class="directory-view tratamientos" hide-nav-bar="true" has-header="false">
+
+    <ion-content has-subheader="false">
+
+        <div class="block-directory-a" style="min-height: 640px;">
+
+            <div class="bar bar-header directoy-bar-header">
+
+                <a class="button button-icon ion-android-arrow-dropleft-circle" ng-click="back()"></a>
+
+                <h1 class="title">Toma Actual</h1>
+
+
+                <a class="button button-icon ion-ios-medkit"></a>
+
+
+
+
+            </div>
+
+            <form class="formRecordatorio" name="formRecordatorio" ng-model="verificarForm" role="form" novalidate>
+
+                <div class="row responsive-sm">
+
+                    <div class="col">
+                        <br/>
+                        <br/>
+
+                        <label class="item item-input bordered-record">
+                            <input type="text" class="nombre-medicacion" name="titulo" ng-model="titulo.value" placeholder="Nombre de la Medicacion" >
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col">
+                        <p class="_bold">Fecha Inicio</p>
+                        <label class="item item-input bordered-record">
+
+                            <input type="text" name="fecha" ng-model="fecha1.value" ng-click="openDatePicker(1)" placeholder="2017-06-06">
+
+                        </label>
+
+                    </div>
+
+                    <div class="col">
+                    <p class="_bold">Fecha Fin</p>
+                        <label class="item item-input bordered-record">
+
+                            <input type="text" name="fecha2" ng-model="fecha2.value" ng-click="openDatePicker(2)" placeholder="2017-06-06">
+
+                        </label>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="_bold">Hora Inicio</p>
+                        <label class="item item-select bordered-record select1">
+
+                            <select name="hora" ng-model="hora.value">
+                                <option value="00">00</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+
+                            </select>
+
+                        </label>
+                    </div>
+                    <div class="col">
+                        <p class="_bold">Minutos Inicio</p>
+                        <label class="item item-select bordered-record select1">
+
+                            <select name="min" ng-model="min.value">
+                                <option value="00">00</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="23">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="41">41</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                                <option value="50">50</option>
+                                <option value="51">51</option>
+                                <option value="52">52</option>
+                                <option value="53">53</option>
+                                <option value="54">54</option>
+                                <option value="55">55</option>
+                                <option value="56">56</option>
+                                <option value="57">57</option>
+                                <option value="58">58</option>
+                                <option value="59">59</option>
+                                
+                            </select>
+
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <p class="_bold">Cada Cuàntas hs.?</p>
+                        <label class="item item-select bordered-record select1">
+
+                            <select name="intervalo" ng-model="intervalo.value">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            </select>
+
+                        </label>
+                    </div>
+                    <div class="col">
+                        <p class="_bold">Tipo de Medicaciòn</p>
+                        <label class="item item-input item-select bordered-record select1">
+
+                            <select name="tipo" ng-model="tipo.value">
+                                <option value="Comprimido">Comprimido</option>
+                                <option value="Tabletas">Tabletas</option>
+                                <option value="Indovenosa">Indovenosa</option>
+                                <option value="Introvenosa">Introvenosa</option>
+
+                            </select>
+
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <hr style="border: 1px solid #dadada; width: 100%;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                                <span class="step size-24" style="color: #015365;">
+                                        <i class="ion-android-notifications"></i>
+                                </span>
+                         <span class="title _bold recordatorio">Recordatorio</span>
+
+                        <div class="row">
+                            <div class="col">
+                                <p class="_bold" ng-show="sin_sonido">Sin Sonido</p>
+                                <p class="_bold" ng-show="con_sonido">Con Sonido</p>
+                            </div>
+                            <div class="col" style="margin-top: -5px;">
+                                <label class="toggle" ng-click="change_sound()">
+                                     <input type="checkbox" name="sound" ng-model="sound.value">
+                                     <div class="track">
+                                         <div class="handle"></div>
+                                     </div>
+                                </label>
+                            </div>
+                            <div class="col">
+                                <p class="_bold" ng-show="desactivado">Desactivado</p>
+                                <p class="_bold" ng-show="activado">Activado</p>
+                            </div>
+                            <div class="col" style="margin-top: -5px;">
+                                <label class="toggle" ng-click="change_status()">
+                                     <input type="checkbox" name="status" ng-model="status.value">
+                                     <div class="track">
+                                         <div class="handle"></div>
+                                     </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                        <div class="col">
+                                <p class="title _bold">Mensaje</p>
+                                <label class="item item-input bordered-record">
+                                    <input type="text" class="message" name="mensaje" ng-model="mensaje.value"  placeholder="Mensaje" >
+                                </label>
+                        </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col">
+
+                        <button class="button button-block button-calm" ng-disabled="formVerificar.$invalid" ng-click = "guardar()">
+                            Aceptar
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </ion-content>
+
+</ion-view>

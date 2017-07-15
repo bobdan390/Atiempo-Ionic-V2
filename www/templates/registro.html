@@ -1,0 +1,113 @@
+<ion-view view-title="directory" class="directory-view" hide-nav-bar="true" has-header="false">
+
+	<ion-content has-subheader="false">
+
+		<div class="block-directory-a" style="min-height: 640px;">
+
+			<div class="bar bar-header directoy-bar-header">
+
+				<a class="button button-icon ion-android-arrow-dropleft-circle" ng-click="back()">
+
+				</a>
+
+				<h1 class="title">Registro</h1>
+
+				<i class="ion-android-arrow-dropdown title"></i>
+
+			</div>
+
+			<form name="formRegis" ng-model="regisForm" role="form" novalidate>
+
+				<div class="row responsive-sm">
+
+					<div class="col">
+
+					<p>Ingrese sus datos en los campos siguientes y presione Verificar</p>
+
+						<label class="item item-input bordered-radio">
+
+							<span class="input-label">Usuario</span>
+
+							<input type="text" name="usuario" ng-model="usuario.value" required>
+
+						</label>
+
+					</div>
+
+				</div>
+
+				<div class="row responsive-sm">
+
+					<div class="col">
+
+						<label class="item item-input bordered-radio">
+
+							<span class="input-label">Nombre</span>
+
+							<input type="text" name="nombre" ng-model="nombre.value" required>
+
+						</label>
+
+					</div>
+
+					<div class="col">
+
+						<label class="item item-input bordered-radio">
+
+							<span class="input-label">Email</span>
+
+							<input type="email" name="email" ng-model="email.value" required>
+
+						</label>
+
+					</div>
+
+				</div>
+
+				<div class="row responsive-sm">
+
+					<div class="col">
+
+						<label class="item item-input bordered-radio">
+
+							<span class="input-label">Clave</span>
+
+							<input type="password" name="clave" ng-model="clave.value" required>
+
+						</label>
+
+					</div>
+
+					<div class="col">
+
+						<label class="item item-input bordered-radio">
+
+							<span class="input-label">Rep. Clave</span>
+
+							<input type="password" name="repClave" ng-model="repClave.value" required>
+
+						</label>
+
+					</div>
+
+				</div>
+
+				<div class="row">
+
+					<div class="col">
+
+						<button class="button button-block button-calm" ng-disabled="formRegis.$invalid" ng-click="registrar(formRegis)">
+							Registrar
+						</button>
+
+					</div>
+
+				</div>
+
+			</form>
+
+		</div>
+
+	</ion-content>
+
+</ion-view>

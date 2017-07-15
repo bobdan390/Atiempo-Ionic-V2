@@ -1,0 +1,41 @@
+<ion-view view-title="record" class="directory-view tratamientos" hide-nav-bar="true" has-header="false">
+
+    <ion-content has-subheader="false">
+
+        <div class="block-directory-a" style="min-height: 640px;">
+
+            <div class="bar bar-header directoy-bar-header">
+
+                <a class="button button-icon ion-android-notifications"></a>
+
+                <h1 class="title">Mi Tratamiento</h1>
+
+            </div>
+
+                <div class="row">
+                	<div class="col" style="text-align: center;">
+                    <br><br>
+                        <img src="img/alarmicon.png" style="width: 50%;">
+                	</div>
+                </div>
+                <div class="row">
+                    <div class="col" style="text-align: center;">
+
+                        <h1>{{titulo}}</h1>
+                        <h3>{{mensaje}}</h3>
+                        <h4>{{tipo}}</h4>
+                        <button class="button button-block button-calm" ng-click = "ok()" style="width: 70%; margin: auto;">
+                            Confirmar
+                        </button>
+
+                        <button class="button button-block button-warning" ng-click = "snoze()" style="width: 70%; margin: auto; margin-top: 15px; background-color: red; color: white;">
+                            Avisar en 5 min.
+                        </button>
+                    </div>
+                </div>
+
+        </div>
+
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,238 @@
+<ion-view view-title="directory" class="directory-view" hide-nav-bar="true" has-header="false">
+
+	<ion-content has-subheader="false">
+
+		<div class="block-directory-a">
+
+			<div class="bar bar-header directoy-bar-header">
+
+				<a class="button button-icon ion-android-arrow-dropleft-circle" ng-click="back()">
+
+				</a>
+
+				<h1 class="title">Directorio</h1>
+
+				<i class="ion-android-arrow-dropdown title"></i>
+
+				<a href="#" class="button button-icon icon-right ion-android-cancel" ng-if="sesionActive" ng-click="cerrarSesion()">
+
+				</a>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col">
+
+				<br><br><br>
+
+					 <strong> <p class="sub-title">Tipo de Atención: {{ tipoAtencion }}</p> </strong>
+
+				</div>
+
+			</div>
+
+			<div class="row responsive-sm block-directory-a-3">
+
+				<div class="col-xs-12 col-sm-12 col-md-3">
+
+					<li class="item item-checkbox input-custom">
+
+						Att. Médica Primaria
+
+			           	<label class="checkbox">
+
+			             	<input type="radio" ng-model="tipoAtencion" value="Medicina" ng-change="consult('ta', tipoAtencion); especialidad.value = ''; estado.value = ''; ciudad.value = ''; getDirec('')">
+
+			           	</label>
+
+			        </li>
+
+
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-3">
+
+					<li class="item item-checkbox input-custom">
+
+						Odontologia
+
+			           	<label class="checkbox">
+
+			             	<input type="radio" ng-model="tipoAtencion" value="Odontología" ng-change="consult('ta', tipoAtencion); especialidad.value = ''; estado.value = ''; ciudad.value = ''; getDirec('')">
+
+			           	</label>
+
+			        </li>
+
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-3">
+
+					<li class="item item-checkbox input-custom">
+
+						Oftalmologia
+
+			           	<label class="checkbox">
+
+			             	<input type="radio" ng-model="tipoAtencion" value="OF" ng-change="consult('ta', tipoAtencion); especialidad.value = ''; estado.value = ''; ciudad.value = ''; getDirec('')">
+
+			           	</label>
+
+			        </li>
+
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-3">
+
+					<li class="item item-checkbox input-custom">
+
+						Servicios Funerarios
+
+				        <label class="checkbox">
+
+				           	<input type="radio" ng-model="tipoAtencion" value="Servicios Funerarios" ng-change="consult('ta', tipoAtencion); especialidad.value = ''; estado.value = ''; ciudad.value = ''; getDirec('')">
+
+				        </label>
+
+				    </li>
+
+				</div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col">
+					<br>
+
+					<label class="item item-input item-select bordered-radio">
+
+					    <div class="input-label">
+					      Especialidad*:
+					    </div>
+
+					    <select name="especialidad" ng-model="especialidad.value" ng-change="estado.value = ''; ciudad.value = '';">
+					      <option value="">Seleccione</option>
+					      <option ng-repeat="espc in listEspc | orderBy:'descripcion'" value="{{ espc.id }}" ng-bind="espc.descripcion"></option>
+					    </select>
+
+					</label>
+
+				</div>
+
+			</div>
+
+			<div class="row responsive-sm block-directory-a-5 shadow-bottom">
+
+				<div class="col">
+
+					<label class="item item-input item-select bordered-radio" ng-if="especialidad.value">
+
+					    <div class="input-label">
+					      Estado*:
+					    </div>
+
+					    <select ng-model="estado.value" ng-change="consult('stado', {'estado': estado.value, 'especialidad': especialidad.value, 'tipoAtencion': tipoAtencion}); ciudad.value = ''; getDirec('')">
+					      <option value="">Seleccione</option>
+					      <option ng-repeat="std in estados | orderBy:'estado'" value="{{ std.id }}" ng-bind="std.estado"></option>
+					    </select>
+
+					</label>
+
+				</div>
+
+				<div class="col">
+
+					<label class="item item-input item-select bordered-radio" ng-if="estado.value">
+
+					    <div class="input-label">
+					      Ciudad*:
+					    </div>
+
+					    <select ng-model="ciudad.value" ng-change="consult('ciud', ciudad); getDirec(''); showProf.value = false; scrollSmallToTop()">
+					      <option value="">Seleccione</option>
+					      <option ng-repeat="cd in ciudades | orderBy:'ciudad'" value="{{ cd.ciudad }}" ng-bind="cd.ciudad"></option>
+					    </select>
+
+					</label>
+
+				</div>
+
+				</div>
+
+				<div class="row" ng-hide="showProf.value">
+
+					<div class="col">
+
+					<br>
+
+						<label style="font-weight: bold;">Seleccione el Centro de Salud o Profesional de la red:</label><br><br>
+
+						<ion-scroll zooming="true" direction="y" style="width: 100%; height: 100%" delegate-handle="pro">
+
+							<div class="list">
+
+						        <label ng-repeat="item in profesionales" class="item item-radio">
+
+						          <input type="radio" name="profes" ng-model="pro" ng-value="item" ng-click="getDirec(pro); showDirec.value = false; scrollSmallToTop()">
+
+						          <div class="radio-content">
+
+						            <div class="item-content" ng-bind="item.nombre">
+
+						            </div>
+
+						            <i class="radio-icon ion-checkmark"></i>
+
+						          </div>
+
+						        </label>
+
+						     </div>
+
+						</ion-scroll>
+
+						<br><br><br>
+
+					</div>
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+		<div class="block-directory-b" ng-hide="showDirec.value">
+
+			<div class="row">
+
+				<div class="col text-center">
+
+					<span class="step size-64">
+
+					  <i class="icon ion-android-pin"></i>
+
+					</span>
+
+					<span class="list">
+
+						<p class="dir-title">Nombre:</p>
+						<p class="dir-profesional" ng-bind="direccion.nombre"></p>
+
+						<p class="dir-title">Dirección:</p>
+						<p class="dir-prof-direccion" ng-bind="direccion.direccion"></p>
+
+					</span>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</ion-content>
+
+
+</ion-view>

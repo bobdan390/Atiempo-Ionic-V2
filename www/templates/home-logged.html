@@ -1,0 +1,80 @@
+<ion-view view-title="Menu" class="menu-view" hide-nav-bar="true" has-header="false">
+
+  <ion-content class="menu-content">
+
+    <div class="header-home">
+
+        <div class="header-img">
+          
+          <span class="h-logout">
+                <i class="ion-log-out" ng-click="exit();"> Salir </i>
+          </span>
+
+          <div id="img-home"><img src="img/logo-blanco.png" /></div>
+
+        </div>
+
+          <div class="welcome-msg" ng-bind="'Hola '+userName">
+
+        </div>
+
+    </div>
+
+    <div class="menu-home logged">
+
+      <div class="menu-btn row">
+
+          <div class="col">
+              <a href="#/appointments">
+                <img src="img/icon-citas.png"/>
+                <span class="menu-text">Citas</span>
+              </a>
+          </div>
+
+          <div class="col">
+              <a href="#/recordatorios">
+                <img src="img/icon-tratamientos.png"/>
+                <span class="menu-text">Tratmientos</span>
+              </a>
+          </div>
+
+          <div class="col">
+              <a href="#/avi">
+                <img src="img/icon-viajero.png"/>
+                <span class="menu-text">Viajero</span>
+              </a>
+          </div>
+
+      </div>
+
+        <div class="menu-btn row">
+
+          <div class="col">
+              <a href="#/documents">
+                <img src="img/icon-historial.png"/>
+                <span class="menu-text">Historial</span>
+              </a>
+          </div>
+
+          <div class="col">
+              <a href="#/directory">
+                <img src="img/icon-centros.png"/>
+                <span class="menu-text">Centros</span>
+              </a>
+          </div>
+
+          <div class="col">
+              <a href="#/contact">
+                <img src="img/icon-contacto.png"/>
+                <span class="menu-text">Contacto</span>
+              </a>
+          </div>
+
+        </div>
+
+    </div>
+
+
+  </ion-content>
+
+</ion-view>

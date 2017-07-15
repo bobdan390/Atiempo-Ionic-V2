@@ -1,0 +1,79 @@
+<ion-view view-title="directory" class="directory-view" hide-nav-bar="true" has-header="false">
+
+    <ion-content has-subheader="false">
+
+        <div class="block-directory-a" style="min-height: 640px;">
+
+            <div class="bar bar-header directoy-bar-header">
+
+                <a class="button button-icon ion-android-arrow-dropleft-circle" ng-click="back()">
+
+                </a>
+
+                <h1 class="title">Verificar Registro</h1>
+
+                <i class="ion-android-arrow-dropdown title"></i>
+
+                <a href="#" class="button button-icon icon-right ion-android-cancel" ng-if="sesionActive" ng-click="cerrarSesion()">
+
+                </a>
+
+            </div>
+
+            <form name="formVerificar" ng-model="verificarForm" role="form" novalidate>
+
+                <div class="row responsive-sm">
+
+                    <div class="col">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <p>Ingrese sus datos y presione Verificar</p>
+
+                        <label class="item item-input bordered-radio">
+
+                            <span class="input-label">Cedula</span>
+
+                            <input type="tel" name="cedula" ng-model="cedula.value" required>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="row responsive-sm">
+
+                    <div class="col">
+
+                        <label class="item item-input bordered-radio">
+
+                            <span class="input-label">Fecha Nac.</span>
+
+                            <input type="text" name="fecha" ng-model="fecha.value" ng-click="openDatePicker()" required>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col">
+
+                        <button class="button button-block button-calm" ng-disabled="formVerificar.$invalid" ng-click="verificar(formVerificar)">
+                            Verificar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </ion-content>
+
+</ion-view>

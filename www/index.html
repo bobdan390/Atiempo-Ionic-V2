@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="atiempo">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="lib/ionAutocomplete/dist/ion-autocomplete.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/ionicons.min.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+    <script type="text/javascript">
+        if (window.cordova) {
+            window.g_event_interval = setInterval(function() {
+                if (cordova.plugins && cordova.plugins.notification && cordova.plugins.notification.local) {
+                    clearInterval(window.g_event_interval);
+                    window.g_event_interval = null;
+                    cordova.plugins.notification.local.on('click', function (notification) {
+                        localStorage.removeItem("id");
+                        localStorage.removeItem("data");
+                        localStorage.setItem("id",notification.id);
+                        localStorage.setItem("data",notification.data);
+                    }, this);
+                }
+            }, 10);
+        }
+    </script>
+    <!-- your app's js -->
+
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/ionAutocomplete/dist/ion-autocomplete.min.js"></script>
+    <script src="lib/angular-jwt/dist/angular-jwt.min.js"></script>
+    <script src="lib/a0-angular-storage/dist/angular-storage.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controller/appController.js"></script>
+    <script src="js/controller/homeCtrl.js"></script>
+    <script src="js/controller/contacCtrl.js"></script>
+    <script src="js/controller/loginCtrl.js"></script>
+    <script src="js/controller/directoryCtrl.js"></script>
+    <script src="js/controller/listCitasCtrl.js"></script>
+    <script src="js/controller/contractCitasCtrl.js"></script>
+    <script src="js/controller/citasCtrl.js"></script>
+    <script src="js/controller/claveCitasCtrl.js"></script>
+    <script src="js/controller/documentsCtrl.js"></script>
+    <script src="js/controller/lockDocCtrl.js"></script>
+    <script src="js/controller/farmaciaCtrl.js"></script>
+    <script src="js/controller/viajesCtrl.js"></script>
+    <script src="js/controller/solictViajeCtrl.js"></script>
+    <script src="js/controller/datosViajeCtrl.js"></script>
+    <script src="js/controller/genViageCtrl.js"></script>
+    <script src="js/controller/homeUserCtrl.js"></script>
+    <script src="js/controller/regisCtrl.js"></script>
+    <script src="js/controller/verRegisCtrl.js"></script>
+    <script src="js/controller/recordCtrl.js"></script>
+    <script src="js/controller/listRecordCtrl.js"></script>
+    <script src="js/controller/alarmaCtrl.js"></script>
+    <script src="js/controller/webViewCtrl.js"></script>
+    <script src="js/directives/directives.js"></script>
+    <script src="js/service/services.js"></script>
+</head>
+<body ng-controller="appController">
+<ion-nav-view></ion-nav-view>
+</body>
+</html>

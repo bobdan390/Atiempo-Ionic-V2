@@ -1,0 +1,108 @@
+<ion-view view-title="viajero" class="directory-view viajero" hide-nav-bar="true" has-header="false">
+
+	<ion-content has-subheader="false">
+
+		<div class="block-directory-a">
+
+			<div class="bar bar-header directoy-bar-header">
+
+				<a href="#/home-user" class="button button-icon ion-android-arrow-dropleft-circle">
+
+				</a>
+
+				<h1 class="title">Asistencia al viajero</h1>
+
+				<i class="ion-android-arrow-dropdown title"></i>
+
+				<a href="#" class="button button-icon icon-right ion-android-cancel" ng-click="cerrarSesion()">
+
+				</a>
+
+			</div>
+
+			<div class="shadow-bottom">
+
+				<div class="row">
+
+					<div class="col">
+
+						<br><br><br>
+
+						 <p class="text-18"> <strong> Solicitud de cita para: </strong>  <span ng-bind="afiliado"></span> </p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col">
+
+					<br>
+
+					<p class="sub-title text-18"><strong>Datos del viaje:</strong></p>
+
+				</div>
+
+			</div>
+
+			<div class="shadow-bottom" ng-repeat="viaje in viajes">
+
+				<div class="row">
+
+					<div class="col">
+
+						 <p ng-bind="'Pais: '+viaje.pais"></p>
+
+					</div>
+
+				</div>
+
+				<div class="row responsive-sm">
+
+					<div class="col">
+
+						<p ng-bind="'Fecha de entrada: '+fechaSeteada(viaje.desde)"></p>
+
+					</div>
+
+					<div class="col">
+
+						<p ng-bind="'Fecha de salida: '+fechaSeteada(viaje.hasta)"></p>
+
+					</div>
+
+				</div>
+
+				<div class="row">
+
+					<div class="col">
+
+						 <p ng-bind="'Cantidad de dias: '+viaje.dias"></p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="row block-citas-next">
+
+			<div class="col">
+
+				<span class="button-footer" ng-click="back()">Atrás</span>
+				<span class="button-footer" ng-click="enviar()">Enviar</span>
+
+			</div>
+
+		</div>
+
+	</ion-content>
+
+	<div class="bar bar-footer"></div>
+
+</ion-view>
